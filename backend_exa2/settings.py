@@ -185,7 +185,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS: permitir peticiones desde tu frontend local (ej: React en puerto 5173 o 3000)
 CORS_ALLOWED_ORIGINS = [
-    "https://frontend-smart-production-b5d9.up.railway.app",
+    "https://frontend-smart-production-8ce5.up.railway.app",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:3000",
@@ -207,7 +207,7 @@ if RAILWAY_PUBLIC_DOMAIN:
 
 # Agregar dominio de Railway a CSRF trusted origins
 CSRF_TRUSTED_ORIGINS = [
-    "https://frontend-smart-production-b5d9.up.railway.app",
+    "https://frontend-smart-production-8ce5.up.railway.app",
     "https://backend-smart-production-1f52.up.railway.app",
     "http://localhost:5173",
     "http://127.0.0.1:5173",

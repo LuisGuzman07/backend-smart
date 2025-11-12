@@ -32,7 +32,7 @@ class PermissionListView(APIView):
 
 # ViewSet para el CRUD de usuario
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = get_user_model().objects.all().order_by('username')
+    queryset = get_user_model().objects.prefetch_related('groups').order_by('username')
     serializer_class = serializer_user
 
     def perform_destroy(self, instance):
@@ -55,7 +55,7 @@ class ClienteViewSet(viewsets.ModelViewSet):
     - Listar con filtros y búsqueda
     - Borrado lógico
     """
-    queryset = Cliente.objects.filter(estado='activo').order_by('nombre', 'apellido')
+    queryset = Cliente.objects.filter(estado='activo').select_related('usuario').order_by('nombre', 'apellido')
     serializer_class = ClienteSerializer
 
     def perform_destroy(self, instance):
@@ -73,7 +73,7 @@ class EmpleadoViewSet(viewsets.ModelViewSet):
     - Listar con filtros y búsqueda
     - Borrado lógico
     """
-    queryset = Empleado.objects.filter(estado='Activo').order_by('nombre', 'apellido')
+    queryset = Empleado.objects.filter(estado='Activo').select_related('usuario').order_by('nombre', 'apellido')
     serializer_class = EmpleadoSerializer
 
     def create(self, request, *args, **kwargs):

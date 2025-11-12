@@ -12,7 +12,7 @@ class ProductoViewSet(viewsets.ModelViewSet):
     ViewSet para gestionar los productos.
     Proporciona operaciones CRUD completas con soporte para categorías e imágenes.
     """
-    queryset = Producto.objects.all()
+    queryset = Producto.objects.select_related('categoria').all()
     serializer_class = ProductoSerializer
 
     def create(self, request, *args, **kwargs):

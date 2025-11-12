@@ -1,0 +1,212 @@
+[
+    {
+        "username": "adrian",
+        "nombre": "Adrián",
+        "apellido": "Flores",
+        "email": "adrian@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "beatriz",
+        "nombre": "Beatriz",
+        "apellido": "Alvarez",
+        "email": "beatriz@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "cesar",
+        "nombre": "César",
+        "apellido": "Rojas",
+        "email": "cesar@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "daniela",
+        "nombre": "Daniela",
+        "apellido": "Gutierrez",
+        "email": "daniela@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "esteban",
+        "nombre": "Esteban",
+        "apellido": "Molina",
+        "email": "esteban@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "fernanda",
+        "nombre": "Fernanda",
+        "apellido": "Navarro",
+        "email": "fernanda@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "gustavo",
+        "nombre": "Gustavo",
+        "apellido": "Delgado",
+        "email": "gustavo@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "hector",
+        "nombre": "Héctor",
+        "apellido": "Cabrera",
+        "email": "hector@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "ines",
+        "nombre": "Inés",
+        "apellido": "Vega",
+        "email": "ines@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "javier",
+        "nombre": "Javier",
+        "apellido": "Soto",
+        "email": "javier@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "karina",
+        "nombre": "Karina",
+        "apellido": "Campos",
+        "email": "karina@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "leonardo",
+        "nombre": "Leonardo",
+        "apellido": "Reyes",
+        "email": "leonardo@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "monica",
+        "nombre": "Mónica",
+        "apellido": "Herrera",
+        "email": "monica@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "nicolas",
+        "nombre": "Nicolás",
+        "apellido": "Aguilar",
+        "email": "nicolas@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "olivia",
+        "nombre": "Olivia",
+        "apellido": "Paredes",
+        "email": "olivia@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "pascual",
+        "nombre": "Pascual",
+        "apellido": "Lara",
+        "email": "pascual@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "quintin",
+        "nombre": "Quintín",
+        "apellido": "Escobar",
+        "email": "quintin@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "rosa",
+        "nombre": "Rosa",
+        "apellido": "Zamora",
+        "email": "rosa@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "salvador",
+        "nombre": "Salvador",
+        "apellido": "Cortez",
+        "email": "salvador@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "teresa",
+        "nombre": "Teresa",
+        "apellido": "Guerrero",
+        "email": "teresa@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "ulises",
+        "nombre": "Ulises",
+        "apellido": "Medina",
+        "email": "ulises@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "veronica",
+        "nombre": "Verónica",
+        "apellido": "Salas",
+        "email": "veronica@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "wilfredo",
+        "nombre": "Wilfredo",
+        "apellido": "Valdez",
+        "email": "wilfredo@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "ximena",
+        "nombre": "Ximena",
+        "apellido": "Peña",
+        "email": "ximena@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "yago",
+        "nombre": "Yago",
+        "apellido": "Rivas",
+        "email": "yago@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "zara",
+        "nombre": "Zara",
+        "apellido": "Figueroa",
+        "email": "zara@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "alberto",
+        "nombre": "Alberto",
+        "apellido": "Mendez",
+        "email": "alberto@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "blanca",
+        "nombre": "Blanca",
+        "apellido": "Luna",
+        "email": "blanca@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "claudio",
+        "nombre": "Claudio",
+        "apellido": "Ortiz",
+        "email": "claudio@example.com",
+        "rol": "cliente"
+    },
+    {
+        "username": "diana",
+        "nombre": "Diana",
+        "apellido": "Cruz",
+        "email": "diana@example.com",
+        "rol": "cliente"
+    }
+]

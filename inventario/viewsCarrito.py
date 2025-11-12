@@ -10,7 +10,7 @@ class CarritoViewSet(viewsets.ModelViewSet):
     ViewSet para gestionar los carritos de compra.
     Proporciona operaciones CRUD completas con soporte para múltiples carritos por cliente.
     """
-    queryset = Carrito.objects.all()
+    queryset = Carrito.objects.select_related('cliente').prefetch_related('detalles__producto').all()
     serializer_class = CarritoSerializer
 
     def get_serializer_class(self):
