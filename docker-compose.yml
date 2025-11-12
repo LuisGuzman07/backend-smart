@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_DB: smartsales
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
     volumes:
@@ -24,7 +24,7 @@ services:
     environment:
       - SECRET_KEY=dev-secret-key-not-for-production
       - DEBUG=True
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/smartsales
+      - DATABASE_URL=postgresql://postgres:password@db:5432/smartsales
     depends_on:
       - db
 
