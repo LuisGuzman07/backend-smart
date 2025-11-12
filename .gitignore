@@ -1,0 +1,30 @@
+# Entornos virtuales
+venv/
+env/
+*.pyc
+
+# Archivos específicos de Python
+__pycache__/
+
+# Archivos de Django y Bases de datos
+db.sqlite3
+
+# Archivos de subida de usuarios
+media/
+
+# Archivos de settings
+.env
+local_settings.py
+
+# Archivos de migraciones (reglas específicas)
+*/migrations/*.pyc
+*/migrations/__pycache__/
+
+# Configuraciones de Editor (VS Code)
+.vscode/*
+!.vscode/extensions.json
+
+# Archivos del sistema operativo
+.DS_Store
+*.log
+
