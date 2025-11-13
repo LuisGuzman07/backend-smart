@@ -42,7 +42,7 @@ RAILWAY_STATIC_URL = config('RAILWAY_STATIC_URL', default='')
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "backend-smart-production-1f52.up.railway.app"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "backend-smart-production-1f52.up.railway.app", "192.168.100.6"]
 
 if RAILWAY_PUBLIC_DOMAIN:
     ALLOWED_HOSTS.append(RAILWAY_PUBLIC_DOMAIN)
@@ -192,6 +192,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:5174",
     "http://127.0.0.1:5174",
+    "http://192.168.100.6",
 ]
 
 if not DEBUG:
@@ -215,6 +216,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:5174",
     "http://127.0.0.1:5174",
+    "http://192.168.100.6",
 ]
 
 # Agregar dominio de Railway a CSRF trusted origins
@@ -224,7 +226,8 @@ if RAILWAY_PUBLIC_DOMAIN:
         f"http://{RAILWAY_PUBLIC_DOMAIN}",
     ])
 
-CORS_ALLOW_ALL_ORIGINS = False
+# Para desarrollo con apps móviles, permitir todos los orígenes
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 

@@ -11,9 +11,20 @@ class ProductoViewSet(viewsets.ModelViewSet):
     """
     ViewSet para gestionar los productos.
     Proporciona operaciones CRUD completas con soporte para categorías e imágenes.
+    Soporta filtrado por categoría mediante query param: ?categoria=<id>
     """
     queryset = Producto.objects.select_related('categoria').all()
     serializer_class = ProductoSerializer
+
+    def get_queryset(self):
+        """Permite filtrar productos por categoría"""
+        queryset = super().get_queryset()
+        categoria_id = self.request.query_params.get('categoria', None)
+        
+        if categoria_id:
+            queryset = queryset.filter(categoria_id=categoria_id)
+        
+        return queryset
 
     def create(self, request, *args, **kwargs):
         """

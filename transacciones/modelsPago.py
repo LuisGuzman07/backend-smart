@@ -39,11 +39,41 @@ class Pago(models.Model):
     
     def save(self, *args, **kwargs):
         """
-        Al guardar el pago, marca automáticamente la nota de venta como pagada
+        Al guardar el pago:
+        1. Marca automáticamente la nota de venta como pagada
+        2. Reduce el stock de los productos vendidos
         """
+        # Verificar si es un nuevo pago (no una actualización)
+        es_nuevo_pago = self.nota_venta_id and not Pago.objects.filter(nota_venta_id=self.nota_venta_id).exists()
+        
         super().save(*args, **kwargs)
+        
+        # Solo marcar como pagada y reducir stock si el estado no es 'pagada'
         if self.nota_venta.estado != 'pagada':
             self.nota_venta.marcar_pagada()
+            
+            # Reducir el stock de cada producto vendido
+            if es_nuevo_pago:
+                self.reducir_stock_productos()
+    
+    def reducir_stock_productos(self):
+        """
+        Reduce el stock de todos los productos en la nota de venta.
+        Se ejecuta automáticamente al confirmar el pago.
+        """
+        for detalle in self.nota_venta.detalles.all():
+            producto = detalle.producto
+            cantidad_vendida = detalle.cantidad
+            
+            # Validar que hay stock suficiente antes de reducir
+            if producto.stock >= cantidad_vendida:
+                producto.stock -= cantidad_vendida
+                producto.save()
+            else:
+                # Si no hay stock suficiente, registrar el error
+                # pero no detener el proceso (el pago ya se procesó)
+                print(f"ADVERTENCIA: Stock insuficiente para {producto.nombre}. "
+                      f"Stock actual: {producto.stock}, Cantidad vendida: {cantidad_vendida}")
     
     def validar_monto(self):
         """

@@ -188,6 +188,9 @@ class PagoViewSet(viewsets.ModelViewSet):
         """
         Endpoint para procesar un pago desde Stripe webhook.
         Espera: nota_venta_id, monto, moneda, payment_intent_id
+        
+        IMPORTANTE: Antes de procesar el pago, valida que haya stock suficiente
+        para todos los productos. Si el pago se confirma, el stock se reduce automáticamente.
         """
         nota_venta_id = request.data.get('nota_venta_id')
         monto = request.data.get('monto')
@@ -216,8 +219,19 @@ class PagoViewSet(viewsets.ModelViewSet):
                 {"error": f"La nota de venta {nota_venta.numero_comprobante} ya tiene un pago registrado"},
                 status=status.HTTP_400_BAD_REQUEST
             )
+        
+        # VALIDAR STOCK DISPONIBLE antes de procesar el pago
+        stock_valido, mensaje_stock = nota_venta.validar_stock_disponible()
+        if not stock_valido:
+            return Response(
+                {
+                    "error": "No se puede procesar el pago por falta de stock",
+                    "details": mensaje_stock
+                },
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
-        # Crear el pago
+        # Crear el pago (esto automáticamente reducirá el stock)
         serializer = PagoCreateSerializer(data={
             'nota_venta': nota_venta_id,
             'monto': monto,
@@ -230,7 +244,7 @@ class PagoViewSet(viewsets.ModelViewSet):
             response_serializer = PagoSerializer(pago)
             return Response(
                 {
-                    "message": "Pago procesado exitosamente",
+                    "message": "Pago procesado exitosamente. El stock de los productos ha sido reducido.",
                     "pago": response_serializer.data
                 },
                 status=status.HTTP_201_CREATED

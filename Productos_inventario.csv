@@ -1,0 +1,121 @@
+codigo,nombre,descripcion,precio_compra,precio_compra_anterior,precio_venta,costo_promedio,stock,imagen,categoria
+LB-001,Refrigerador Samsung 320L No Frost,Refrigerador de doble puerta con sistema No Frost,1450.00,,2100.00,1775.00,20,https://i.ibb.co/VcB0L9zs/Product-family-item-image-image-4-Ju-PHt1-Wv-Ow-Dnm-Yh-Z6r-A.png,Línea Blanca
+LB-002,Refrigerador LG Inverter 400L,Refrigerador de alta eficiencia con motor Inverter,1600.00,,2350.00,1975.00,25,https://i.ibb.co/qMzRDYxn/Untitled-design-16.jpg,Línea Blanca
+LB-003,Freezer Electrolux Horizontal 200L,Freezer horizontal compacto de bajo consumo,1200.00,,1790.00,1495.00,12,https://i.ibb.co/BHVQbwfp/D-938001-MLA79559169804-102024-F.jpg,Línea Blanca
+LB-004,Cocina Mabe 5 Hornallas Inox,Cocina a gas de acero inoxidable con horno amplio,1150.00,,1690.00,1420.00,30,https://i.ibb.co/VYz8HH4V/COOK-EME7690-CFYX1-CONT-003.png,Línea Blanca
+LB-005,Microondas Panasonic 30L Digital,Microondas digital de 30 litros con función grill,350.00,,580.00,465.00,18,https://i.ibb.co/mCmNbZVv/d6574aa2d94212c207192bc797ea10f8.jpg,Línea Blanca
+LB-006,Lavadora LG 16Kg Carga Superior,Lavadora automática con motor Smart Inverter,1350.00,,1990.00,1670.00,10,https://i.ibb.co/k28Nb2mT/thum-1600x1062.jpg,,Línea Blanca
+LB-007,Lavadora-Secadora Samsung 11/7Kg Digital Inverter,Lavadora-secadora digital de bajo consumo,1800.00,,2590.00,2195.00,15,https://i.ibb.co/Sw4mymT8/cl-combo-wd80m4453jwef-wd11m4473mw-zs-533091750-Q90-1164-776-PNG.png,Línea Blanca
+LB-008,Horno Eléctrico Oster 45L,Horno eléctrico de 45L con convección,400.00,,640.00,520.00,22,https://i.ibb.co/tpqfyxHD/image-375b48a6c423467b9018fd1de584e47f.jpg,Línea Blanca
+LB-009,Campana Extractora Indurama 90cm,Campana extractora de acero inoxidable de 3 velocidades,380.00,,590.00,485.00,16,https://i.ibb.co/XQBKKv6/155627-1200-auto-v-638805088121600000-width-1200-height-auto-aspect-true.jpg,Línea Blanca
+LB-010,Lavavajillas Whirlpool 12 Servicios,Lavavajillas automático de 12 servicios,1550.00,,2250.00,1900.00,8,https://i.ibb.co/h12Gdjt3/156900-1200-auto-v-638762714713530000-width-1200-height-auto-aspect-true.jpg,Línea Blanca
+LB-011,Refrigerador Side-by-Side Hisense 570L,Refrigerador grande con dispensador de agua y hielo,2100.00,,3090.00,2595.00,9,https://i.ibb.co/cX3b3J7b/570-LEFMRFGS-570-L-Side-By-Side-Refrigerator-EFM-unique-870c1a8.jpg,Línea Blanca
+LB-012,Microondas LG Grill 28L,Microondas digital con grill y temporizador,370.00,,540.00,455.00,14,https://i.ibb.co/mrbpR04V/zoom02.jpg,Línea Blanca
+LB-013,Horno Empotrable Bosch Serie 4,Horno empotrable multifunción de acero inoxidable,1300.00,,1990.00,1645.00,6,https://i.ibb.co/21hdbsr8/licensed-image-q-tbn-ANd9-Gc-S68c-Vr0f-Crt8vd5xzv-BHK-c-Ugg0-LEIdr-MGY52m-FU16-J5-Pge6f-Pcy81n-NGi-E.jpg,Línea Blanca
+LB-014,Campana Extractora Teka Pared 75cm,Campana decorativa con filtro metálico,410.00,,640.00,525.00,18,https://i.ibb.co/pvFZ9LpB/8421152069639-a.jpg,Línea Blanca
+LB-015,Freezer Vertical Mabe 250L,Freezer vertical con control de temperatura digital,1250.00,,1860.00,1555.00,13,https://i.ibb.co/LXGkLrPf/Mabe-Refrigeradores-250-L-dark-silver-RMA250-FYMRQ0-Derecha.jpg,Línea Blanca
+LB-016,Cocina Eléctrica Thomas Cerámica 2 Hornallas,Cocina eléctrica con superficie vitrocerámica,460.00,,680.00,570.00,20,https://i.ibb.co/CK21bFVd/s-l1600.webp,Línea Blanca
+LB-017,Refrigerador Compacto Daewoo 90L,Refrigerador pequeño ideal para oficina o dormitorio,590.00,,890.00,740.00,25,https://i.ibb.co/cXhQkr2p/D-NQ-NP-2-X-723485-MCO93068179310-092025-F.webp,Línea Blanca
+LB-018,Lavadora Automática Samsung 19Kg,Lavadora digital de alta capacidad,1600.00,,2450.00,2025.00,8,https://i.ibb.co/WWm4003y/20827319.jpg,Línea Blanca
+LB-019,Secadora Whirlpool Gas 15Kg,Secadora a gas de alta eficiencia,1350.00,,1990.00,1670.00,12,https://i.ibb.co/DfN4Xmfw/3dwgd4815fw-standalone-3000x3000.jpg,Línea Blanca
+LB-020,Horno Eléctrico Thomas 60L Digital,Horno eléctrico digital con temporizador,650.00,,940.00,795.00,16,https://i.ibb.co/XfZb2pPR/w-1500-h-1500-fit-pad.webp,Línea Blanca
+LB-021,Cocina Whirlpool 6 Hornallas Inox,Cocina de 6 hornallas con horno autolimpiante,1250.00,,1790.00,1520.00,7,https://i.ibb.co/5hrGL9bh/NEVADA.png,Línea Blanca
+#✅ Creada categoría: Electrohogar
+EH-001,Licuadora Oster 10 Velocidades 600W,Licuadora clásica de 1.5L con vaso de vidrio templado,320.00,,480.00,400.00,25,https://i.ibb.co/chp9QRsB/004172-051-000-1.jpg,Electrohogar
+EH-002,Batidora Philips DailyMix 400W,Batidora de mano con vaso medidor de 700ml,180.00,,290.00,235.00,40,https://i.ibb.co/M5xv9Kxg/157196-1200-auto-v-638225373667930000-width-1200-height-auto-aspect-true.jpg,Electrohogar
+EH-003,Aspiradora Samsung 1800W Bolsa Reutilizable,Aspiradora potente con filtro HEPA,450.00,,690.00,570.00,18,https://i.ibb.co/Q32TfJNk/aspiradora-samsung-vc18m3110-foto1.webp,Electrohogar
+EH-004,Aspiradora Robot Xiaomi Mi Vacuum 2,Aspiradora robot inteligente con mapeo láser,1250.00,,1790.00,1520.00,8,https://i.ibb.co/k7h0vCp/licensed-image-q-tbn-ANd9-Gc-TBXC64y-HNAQ2i-Pj-CQh-Gm-GYk3-IGz-NTzv4t-Czi7-Ja-NHJy6p-BAb-WHi-ZUt5nik.jpg,Electrohogar
+EH-005,Cafetera Oster Espresso Automática,Cafetera espresso con bomba italiana 15 bar,890.00,,1290.00,1090.00,12,https://i.ibb.co/nMNCpmY3/licensed-image-q-tbn-ANd9-Gc-S0fw-RBe-Nfd-LFt-itlg-Xir-ah-Y-Rtudj-GDl-ADQT3i-BZQN2-TTb-Jta-G9-Cjdg-E.jpg,Electrohogar
+EH-006,Hervidor Eléctrico Thomas Inox 1.7L,Hervidor eléctrico de acero inoxidable con apagado automático,190.00,,290.00,240.00,30,https://i.ibb.co/Q7qvX2hw/image-Url-1.jpg,Electrohogar
+EH-007,Plancha de Ropa Philips SteamGlide 2200W,Plancha a vapor con suela antiadherente,240.00,,360.00,300.00,22,https://i.ibb.co/b5qHwNS3/157215-1200-auto-v-638231451145270000-width-1200-height-auto-aspect-true.jpg,Electrohogar
+EH-008,Plancha Vertical Oster Vaporizadora,Plancha vertical portátil con tanque de 2L,420.00,,640.00,530.00,15,https://i.ibb.co/pB3PTwZK/GCSTGS7000-2.jpg,Electrohogar
+EH-009,Tostadora Electrolux 2 Rebanadas,Tostadora con control de temperatura y expulsión automática,210.00,,320.00,265.00,25,https://i.ibb.co/20bxmkjZ/819342-1200-auto-v-638798965522970000-width-1200-height-auto-aspect-true.jpg,Electrohogar
+EH-010,Sandwichera Thomas 750W Antiadherente,Sandwichera doble con revestimiento cerámico,190.00,,290.00,240.00,28,https://i.ibb.co/kVtzvZrB/34577395-1200-auto-v-638346311837800000-width-1200-height-auto-aspect-true.png,Electrohogar
+EH-011,Extractor de Jugos Moulinex 1L,Extractor de jugos con cuchillas de acero inoxidable,450.00,,690.00,570.00,20,https://i.ibb.co/7JBN6zL9/EDXEJU550-D-N-jpg.webp,Electrohogar
+EH-012,Aspiradora de Mano Black+Decker Cyclonic,Aspiradora inalámbrica de mano con batería recargable,320.00,,480.00,400.00,16,https://i.ibb.co/NnyYL19j/156298-1200-auto-v-637945600123270000-width-1200-height-auto-aspect-true.jpg,Electrohogar
+EH-013,Cafetera Nespresso Essenza Mini,Cafetera automática para cápsulas Nespresso,680.00,,940.00,810.00,12,https://i.ibb.co/kVY4dhxS/licensed-image-q-tbn-ANd9-Gc-Qx-Ly-LTq0hq1-Ex-Vpv40co2xr0-Uba-QFYPg813y-Zy5l-X-O55-B-F78a-Lnlf-Bg-OH.jpg,Electrohogar
+EH-014,Batidora Planetaria Thomas ChefMix 1200W,Batidora planetaria con bowl de acero 5L,740.00,,1090.00,915.00,10,https://i.ibb.co/RkYP6FdQ/960-1634225273.png,Electrohogar
+EH-015,Hervidor Smart Xiaomi Mi Kettle 1.5L,Hervidor inteligente con control de temperatura por app,290.00,,420.00,355.00,22,https://i.ibb.co/xSXkF5hq/licensed-image-q-tbn-ANd9-Gc-Rp9gu-Tnd-L5-EZUv-Rm-UYa-I-a5-S4zun-E8s-Lvnn-FCVo-Lb-NIRf5-IITGVTi-s5x.jpg,Electrohogar
+EH-016,Aspiradora sin Bolsa LG Kompressor 2000W,Aspiradora ciclónica sin bolsa con contenedor grande,720.00,,1080.00,900.00,14,https://i.ibb.co/4ZKyJFjb/large01.jpg,Electrohogar
+EH-017,Plancha de Vapor Oster CeramicFlow 2400W,Plancha de vapor de alta potencia con suela cerámica,260.00,,390.00,325.00,20,https://i.ibb.co/fYVPRL87/157911-1600-auto-v-637399331317930000-width-1600-height-auto-aspect-true.jpg,Electrohogar
+EH-018,Cafetera de Goteo Midea 1.2L,Cafetera de goteo con función antigoteo y temporizador,220.00,,340.00,280.00,30,https://i.ibb.co/KzhVHSMc/db8b4270edddb0b666938cfa164c060c68ba5016-jpg.webp,Electrohogar
+EH-019,Licuadora Oster Xpert 1100W,Licuadora profesional con jarra Tritan de 2L,680.00,,960.00,820.00,15,https://i.ibb.co/qF2QWTSn/156408-1600-auto-v-637771242120300000-width-1600-height-auto-aspect-true.jpg,Electrohogar
+EH-020,Batidora Manual Philips Viva Collection,Batidora manual con 2 velocidades y ganchos amasadores,190.00,,280.00,235.00,35,https://i.ibb.co/CKTTsttK/vrs-234f999bc49e23930aa90aa1396ce3040bd8475c-wid-1400-hei-1400-pnglarge.webp,Electrohogar
+#✅Categoría: Tecnología y Computación
+TC-001,Laptop HP Pavilion 15 Ryzen 5 8GB RAM,Laptop de 15.6 pulgadas con procesador Ryzen 5 y SSD 512GB,2350.00,,3190.00,2770.00,15,https://i.ibb.co/V0PRrywz/HP-Pavilion-15-Ryzen-5-8-GB-512-GB-Horizon-Blue-4ea0e4d3-e12c-4e28-83d7-318b6eb62450-bd2c54639f46b51.jpg,Tecnología y Computación
+TC-002,Laptop Asus VivoBook 14 Intel i7 16GB SSD512,Laptop ultradelgada con pantalla Full HD y teclado retroiluminado,2950.00,,3890.00,3420.00,10,https://i.ibb.co/C5HYn8yc/D-NQ-NP-2-X-693772-MLA82669529652-032025-F.webp,Tecnología y Computación
+TC-003,Laptop Lenovo IdeaPad 3 15 i5 8GB SSD256,Laptop liviana ideal para oficina y estudio,1850.00,,2590.00,2220.00,20,https://i.ibb.co/k2Vpxmrw/5565.png,Tecnología y Computación
+TC-004,Monitor Samsung 27 Curvo Full HD,Monitor curvo de 27 pulgadas con resolución 1920x1080,950.00,,1390.00,1170.00,18,https://i.ibb.co/6RTvZCyP/samsung-32-c32r500fhl-1.jpg,Tecnología y Computación
+TC-005,Monitor LG Ultrawide 29 IPS,Monitor ultrapanorámico con tecnología IPS y 75Hz,1150.00,,1650.00,1400.00,16,https://i.ibb.co/ns4g1Hq8/151269-001.jpg,Tecnología y Computación
+TC-006,Impresora HP DeskJet 2775 WiFi Multifunción,Impresora multifunción con conexión inalámbrica,480.00,,720.00,600.00,25,https://i.ibb.co/G4DVfk0y/7-FR21-A-1-T1679071595.png,Tecnología y Computación
+TC-007,Impresora Epson EcoTank L3250 WiFi,Impresora de tinta recargable con WiFi Direct,950.00,,1390.00,1170.00,12,https://i.ibb.co/XZLwnHY6/IMPEPSMULL3250-1-lg.webp,Tecnología y Computación
+TC-008,Router TP-Link Archer AX3000 WiFi 6,Router WiFi 6 de doble banda con puertos Gigabit,620.00,,890.00,755.00,20,https://i.ibb.co/nN6pT5Lg/images-q-tbn-ANd9-Gc-Tcl-XPRt6qq-Eua-T3qi-If0-NVOKqx-Gig-KC-Ys-Q-s.jpg,Tecnología y Computación
+TC-009,Teclado Logitech K380 Bluetooth,Teclado compacto inalámbrico para PC y tablet,180.00,,290.00,235.00,40,https://i.ibb.co/d4pYB2j4/logitech-computo-rosa-teclado-logitech-k380-inalambrico-multidispositivo-bluetooth-097855155726-3858.jpg,Tecnología y Computación
+TC-010,Mouse Logitech G203 Lightsync RGB,Mouse gamer con iluminación RGB y sensor de alta precisión,220.00,,340.00,280.00,35,https://i.ibb.co/67gcx1jx/logitech-g-mouse-gamer-negro-mouse-gamer-logitech-g203-rgb-lightsync-6-botones-097855155948-46364025.jpg,Tecnología y Computación
+#✅Categoría: Audio y Video
+AV-001,Televisor LG OLED 55 C1 Smart AI ThinQ,Televisor OLED 55 pulgadas con inteligencia artificial ThinQ,3600.00,,4990.00,4295.00,8,https://i.ibb.co/j9Krhkb5/dz-01.jpg,Audio y Video
+AV-002,Televisor Hisense 65 QLED 4K,Televisor QLED 65 pulgadas con HDR10+ y Dolby Vision,3250.00,,4490.00,3870.00,6,https://i.ibb.co/7tCLvPvt/65A7GQ.png,Audio y Video
+AV-003,Parlante JBL Charge 5 Bluetooth,Parlante portátil resistente al agua con batería 20h,650.00,,940.00,795.00,25,https://i.ibb.co/7xRTF2D1/CHA5-LOGO2.png,Audio y Video
+AV-004,Parlante Bose SoundLink Revolve II,Parlante portátil con sonido 360° y Bluetooth,990.00,,1390.00,1190.00,15,https://i.ibb.co/Fk59nvYN/licensed-image-q-tbn-ANd9-Gc-Qdoyewcy52-YOnw28-Lf-Oz-Xdjvtl-NIGQJ4l-Bo1-RQi-Vx-HOkg80-Bo-Wh-Uqi-Ont.jpg,Audio y Video
+AV-005,Barra de Sonido Samsung HW-Q60T 5.1ch,Barra de sonido 5.1 canales con Dolby Digital,1350.00,,1890.00,1620.00,10,https://i.ibb.co/Gfg66HjC/es-soundbar-hw-q60t-hw-q60t-zf-setrperspectiveblack-240775415-Q90-684-547-JPG.jpg,Audio y Video
+AV-006,Home Theater Sony HT-S40R 5.1 600W,Sistema de teatro en casa con conectividad Bluetooth,1450.00,,1990.00,1720.00,8,https://i.ibb.co/4nCZQwy5/3d3a90045fd945574b42b191f60f34e6-fmt-pjpeg-wid-330-bgcolor-FFFFFF-bgc-FFFFFF.jpg,Audio y Video
+AV-007,Audífonos Sony WH-1000XM5 Noise Cancelling,Audífonos inalámbricos con cancelación activa de ruido,1250.00,,1790.00,1520.00,14,https://i.ibb.co/BVZ4P86k/2167852jpg.jpg,Audio y Video
+AV-008,Audífonos Apple AirPods Pro 2,Audífonos con cancelación activa y modo transparencia,1450.00,,1990.00,1720.00,20,https://i.ibb.co/rKrtDm0K/111851-sp880-airpods-Pro-2nd-gen.png,Audio y Video
+AV-009,Micrófono Blue Yeti X Profesional,Micrófono de estudio con control de ganancia y luces LED,890.00,,1290.00,1090.00,10,https://i.ibb.co/5xgjpXDS/licensed-image-q-tbn-ANd9-Gc-Tyj-RNEGJil-Ct-Nxg-RI9emu-u-Y-N-Gdm-Y-Tddhva-Ftw-Al-AIgtt-AZ6fl-G1-Wp3k.jpg,Audio y Video
+AV-010,Parlante Smart Google Nest Audio,Altavoz inteligente con Asistente de Google integrado,560.00,,840.00,700.00,25,https://i.ibb.co/WvThFshZ/Google-Nest-Audio-Front-Design-scaled-1-600x450.jpg,Audio y Video
+#✅Categoría: Telefonía y Tablets
+TT-001,Smartphone Samsung Galaxy S24 Ultra 512GB,Teléfono inteligente con pantalla AMOLED 6.8 y cámara 200MP,5700.00,,7490.00,6595.00,10,https://i.ibb.co/nsqyhkcc/image-06072544a06745399c6bfd85fd089926.jpg,Telefonía y Tablets
+TT-002,Smartphone iPhone 15 Pro 256GB Titanium,Smartphone premium con chip A17 Pro y cámara triple,7200.00,,9490.00,8345.00,8,https://i.ibb.co/5xKsk7jD/licensed-image-q-tbn-ANd9-Gc-Qh6-Metm-Btp-vr-Xxj-NCC3-Xch1o-RVo10-QUN62-O2-HP4-VSKCJInyy-Coc-Yreq-Su.jpg,Telefonía y Tablets
+TT-003,Tablet Samsung Galaxy Tab S9 FE+ 12.4,Tablet con pantalla AMOLED 12.4 y S Pen incluido,3150.00,,4290.00,3720.00,10,https://i.ibb.co/hJ5DDWZ1/gr1-6.jpg,Telefonía y Tablets
+TT-004,Tablet Apple iPad Air 10.9 M1 Chip,Tablet profesional con chip M1 y pantalla Liquid Retina,3900.00,,5190.00,4545.00,8,https://i.ibb.co/B7x66xL/6cfaf2807e560ed0cffb40d53b5678e6.jpg,Telefonía y Tablets
+TT-005,Smartwatch Samsung Galaxy Watch 6 Classic,Reloj inteligente con pantalla Super AMOLED y control ECG,1550.00,,2190.00,1870.00,20,https://i.ibb.co/RTsMzZM4/images-q-tbn-ANd9-Gc-S0-Dyul8-WYd-ZLa-Sh-Oescik8-Wdn-NDs-WTNw-Sd1g-s.jpg,Telefonía y Tablets
+TT-006,Smartwatch Apple Watch Series 9 GPS 45mm,Reloj inteligente con chip S9 y pantalla Always-On Retina,2650.00,,3690.00,3170.00,15,https://i.ibb.co/tM0gDppR/refurb-45-cell-alum-midnight-sport-band-midnight-s9-wid-1144-hei-1144-fmt-jpeg-qlt-90.jpg,Telefonía y Tablets
+TT-007,Cargador Inalámbrico Belkin MagSafe 15W,Base de carga inalámbrica certificada MagSafe,490.00,,740.00,615.00,20,https://i.ibb.co/j9x8XxSN/139612314-WIZ017-BLK-3in1-Wireless-Charging-Dock-Hero-WEB-c77fdb7d-5795-4458-8e2c-efff2dfceaf2.jpg,Telefonía y Tablets
+TT-008,Power Bank Anker 20000mAh PowerIQ,Batería portátil de alta capacidad con doble salida USB,480.00,,690.00,585.00,30,https://i.ibb.co/B5cm9XR0/licensed-image-q-tbn-ANd9-Gc-Rlf5-Bjy-Gx-jzo-T-AQj-Iy-JTIxyaw-PZJWBbb-VX7f-SFWWDne-Bxcz-Qql8-SVmq428.jpg,Telefonía y Tablets
+TT-009,Cable Trenzado Ugreen 100W USB-C a USB-C,Cable de carga rápida PD 100W reforzado en nailon,150.00,,240.00,195.00,50,https://i.ibb.co/rRRvGcZ2/D-NQ-NP-2-X-711303-MLA95969950216-102025-F.webp,Telefonía y Tablets
+TT-010,Auriculares Bluetooth Baseus Bowie E3,Auriculares inalámbricos con cancelación de ruido,320.00,,480.00,400.00,35,https://i.ibb.co/DPpsDqCZ/1653034505.jpg,Telefonía y Tablets
+#✅Categoría: Climatización
+CL-001,Aire Acondicionado LG Dual Inverter 12000 BTU Frío-Calor,Aire acondicionado Split con tecnología Dual Inverter,2650.00,,3690.00,3170.00,10,https://i.ibb.co/spdpjF3S/zoom-01.jpg,Climatización
+CL-002,Aire Acondicionado Samsung WindFree 18000 BTU,Aire acondicionado con tecnología WindFree y control WiFi,3450.00,,4790.00,4120.00,8,https://i.ibb.co/fdFtRgGz/samsung-wind-free-768x768.png,Climatización
+CL-003,Aire Acondicionado Midea Inverter 9000 BTU WiFi,Aire Split con conectividad WiFi y eficiencia A++,2100.00,,2990.00,2545.00,12,https://i.ibb.co/tPpVGcRg/Aire-Breezeless-2-resultado.jpg,Climatización
+CL-004,Aire Acondicionado TCL Inverter 24000 BTU Smart,Aire acondicionado Smart con control por aplicación móvil,3890.00,,5190.00,4540.00,6,https://i.ibb.co/DD9wqRqt/3333198-3-1698860132.jpg,Climatización
+CL-005,Aire Acondicionado Portátil Whirlpool 12000 BTU,Aire portátil con control remoto y temporizador,2290.00,,3190.00,2740.00,8,https://i.ibb.co/ym4bCDqq/pacf212co-w-aires-acondicionados-1-webp.jpg,Climatización
+CL-006,Calefactor Eléctrico Liliana Cerámico 2000W,Calefactor portátil con sistema de seguridad antivuelco,290.00,,420.00,355.00,25,https://i.ibb.co/twfTLXKv/158632-1536-2048-v-638459551621030000-width-1536-height-2048-aspect-true.jpg,Climatización
+CL-007,Calefactor Smart Xiaomi Mi Smart Heater S,Calefactor inteligente con control por app y WiFi,450.00,,640.00,545.00,20,https://i.ibb.co/Y72XzsPv/estufa-1.png,Climatización
+CL-008,Ventilador de Pie Thomas Turbo 18 3 Velocidades,Ventilador de pedestal con oscilación y altura ajustable,320.00,,460.00,390.00,28,https://i.ibb.co/ksSZ0kks/379253-1600-1600-v-638572476600100000-width-1600-height-1600-aspect-true.jpg,Climatización
+CL-009,Ventilador de Mesa Imaco 12 Oscilante,Ventilador compacto con aspas plásticas,150.00,,240.00,195.00,35,https://i.ibb.co/7JhwhVhD/D-NQ-NP-2-X-868889-MCO90662251599-082025-F.webp,Climatización
+CL-010,Ventilador Smart Xiaomi Mi Smart Standing Fan 2,Ventilador inteligente con WiFi y control remoto,420.00,,640.00,530.00,20,https://i.ibb.co/SDjdJbpQ/images-q-tbn-ANd9-Gc-TQudjhhw4rr-Z8-Ue-Ld-AJj-F-5-Am-Qn-Rd55ak-H7-Q-s.jpg,Climatización
+CL-011,Purificador de Aire Philips AC1215 HEPA,Purificador con sensor de calidad del aire y modo automático,950.00,,1350.00,1150.00,16,https://i.ibb.co/ycDMWXRD/philips-ac1215-10.jpg,Climatización
+CL-012,Purificador de Aire Smart LG PuriCare 360 Dual,Purificador premium con doble entrada de aire y WiFi,1890.00,,2590.00,2240.00,8,https://i.ibb.co/HTDd3kJ9/81-9-T2j6-I4-L-AC-SL1500.jpg,Climatización
+#✅Categoría: Iluminación y Energía
+IE-001,Foco LED Inteligente Xiaomi Mi Smart Bulb 10W RGB,Foco RGB con control por app y asistentes de voz,55.00,,89.00,72.00,60,https://i.ibb.co/xKn0sqHH/licensed-image-q-tbn-ANd9-Gc-R7-hc-Ilz39-H2-A0t-PS8xuw-Gu-FVTl-J8-F4-LBR7-H90-Ik-Ao-A6-Di-BWt-OJy0g.jpg,Iluminación y Energía
+IE-002,Lámpara de Escritorio Xiaomi Mi Smart Lamp 2,Lámpara LED regulable con control por app,120.00,,179.00,149.50,25,,Iluminación y Energía
+IE-003,Lámpara de Pie Philips Hue Ambiance,Iluminación de ambiente compatible con Hue Bridge,420.00,,599.00,509.50,12,https://i.ibb.co/Q3BwJjYC/lampara-pie-signe-gradient-hue-led-rgb-philips.jpg,Iluminación y Energía
+IE-004,Panel Solar Portátil EcoFlow 160W Plegable,Panel plegable 160W para generadores portátiles,950.00,,1390.00,1170.00,6,https://i.ibb.co/TM3XpP0V/panel-solar-portatil-plegable-160w-12v-ecoflow-687fbcc2b604a-thumb2x.jpg,Iluminación y Energía
+IE-005,UPS Forza 1500VA LCD AVR,UPS interactivo con pantalla LCD y regulación AVR,520.00,,740.00,630.00,10,https://i.ibb.co/FknQQGFV/Captura-de-pantalla-2025-11-12-235623.png,Iluminación y Energía
+IE-006,Foco Solar Exterior 120 LED con Sensor,Foco solar IP65 con sensor de movimiento,75.00,,115.00,95.00,50,https://i.ibb.co/DPk1HhTv/licensed-image-q-tbn-ANd9-Gc-SKJxe-JYr-mfi-Ovp9-WIO9-Od60-N-k-EVf5-TQ2-Kw-V8-BJ2-Enbowy4v19xo1-JFy-S.jpg,Iluminación y Energía
+#✅Categoría: Smart Home
+SH-001,Google Nest Hub 2da Gen 7,Asistente de voz con pantalla táctil 7",690.00,,990.00,840.00,12,https://i.ibb.co/RmPXJQr/51tx4-G8-Ju-XL-AC-SL1000.jpg,Smart Home
+SH-002,Cámara IP Xiaomi Mi 360 2K Pro,Cámara 360° con detección de movimiento,260.00,,390.00,325.00,30,https://i.ibb.co/3YFhFcKh/3454-mi360homesecuritycamera2k-pro-800px-1.png,Smart Home
+SH-003,Cerradura Yale Linus Smart Lock,Cerradura inteligente compatible con app,1250.00,,1790.00,1520.00,6,https://i.ibb.co/jPHj16GQ/media.png,Smart Home
+SH-004,Timbre Ring Video Doorbell 4,Timbre con video 1080p y batería recargable,720.00,,1050.00,885.00,12,https://i.ibb.co/k6JS5T1C/D-NQ-NP-2-X-719203-MLU73578736638-122023-F.webp,Smart Home
+SH-005,Cortina Eléctrica SwitchBot Curtain 3,Motor para cortinas con control por app,620.00,,890.00,755.00,10,https://i.ibb.co/4nL5kDkg/switchbot-curtain-3-892420-700x700.jpg,Smart Home
+#✅Categoría: Gaming y Entretenimiento
+GM-001,PlayStation 5 Slim 1TB,Consola de nueva generación con SSD 1TB,3990.00,,5290.00,4640.00,8,https://i.ibb.co/GvG9sZv4/650-1200.jpg,Gaming y Entretenimiento
+GM-002,Xbox Series X 1TB,Consola 4K 120Hz con 1TB SSD,3890.00,,5190.00,4540.00,7,https://i.ibb.co/qFgHpTgC/s-l1200.jpg,Gaming y Entretenimiento
+GM-003,Nintendo Switch OLED 7,Consola híbrida con pantalla OLED 7",2490.00,,3390.00,2940.00,10,https://i.ibb.co/ZzFwwphY/e06716.jpg,Gaming y Entretenimiento
+#✅Categoría: Fotografía y Filmación
+FF-001,Cámara Canon EOS R50 Mirrorless,Cámara mirrorless APS-C 24MP con lente 18-45mm,4500.00,,5990.00,5245.00,6,https://i.ibb.co/WW6mkNzV/D-NQ-NP-843184-MBO84895576874-052025-O.webp,Fotografía y Filmación
+FF-002,Cámara Sony ZV-E10 Vlog Kit,Cámara para vlogs con lente intercambiable 16-50mm,4200.00,,5690.00,4945.00,8,https://i.ibb.co/WWthycSW/a93579ec54e94ebff6fde632089f1fab-fmt-pjpeg-wid-1014-hei-396-bgcolor-F1-F5-F9-bgc-F1-F5-F9.jpg,Fotografía y Filmación
+FF-003,Cámara Nikon Z30 Mirrorless,Cámara compacta 4K UHD con sensor APS-C,3850.00,,5190.00,4520.00,7,https://i.ibb.co/0j56g1fn/Front-Left-z-30-34-le-l-SKR6-SOv-large.png,Fotografía y Filmación
+#✅Categoría: Cuidado Personal Electrónico
+CP-001,Afeitadora Braun Series 7 AutoSense,Afeitadora eléctrica con sensor de densidad,890.00,,1290.00,1090.00,10,https://i.ibb.co/PsYp4jQF/71-N1200-S-Braun-Series-7-afeitadora-en-seco-y-en-mojado-cabezal-Flex-Auto-Sense-Easy-Click-unique-d.jpg,Cuidado Personal Electrónico
+CP-002,Cepillo Dental Eléctrico Oral-B Pro 1000,Cepillo con sensor de presión y temporizador,280.00,,420.00,350.00,25,https://i.ibb.co/zTgCf5P6/D-NQ-NP-2-X-952946-CBT82652346568-032025-F.webp,Cuidado Personal Electrónico
+CP-003,Rizador de Cabello Dyson Airwrap Complete,Styler multifuncional con accesorios intercambiables,3690.00,,4890.00,4290.00,4,https://i.ibb.co/TB6xJTH3/full-image-1.webp,Cuidado Personal Electrónico
+CP-004,Secador de Cabello Dyson Supersonic,Secador premium con motor digital y control térmico,3290.00,,4390.00,3840.00,5,https://i.ibb.co/vvxCZFF5/WEB-505-PDP-DYNAMIC-T3-T4-Primary-copia.jpg,Cuidado Personal Electrónico
+CP-005,Depiladora IPL Braun Silk Expert Pro 5,Depiladora láser con sensor de tono de piel,2850.00,,3890.00,3370.00,5,https://i.ibb.co/vxq2v4JZ/pdp-fehr-silk-expert-pro-5-pl5152-packaging.jpg,Cuidado Personal Electrónico
+#✅Categoría: Herramientas Eléctricas
+HE-001,Taladro inalámbrico DeWalt 20V MAX,Kit de taladro-atornillador inalámbrico 20V con batería XR,950.00,,1390.00,1170.00,12,https://i.ibb.co/C5YL7NzX/DCD791-D2-B3-1100x1100.jpg,Herramientas Eléctricas
+HE-002,Amoladora angula Bosch GWS 18V-10,Amoladora inalámbrica 18V 125mm Bosch Professional,890.00,,1290.00,1090.00,15,https://i.ibb.co/cXS80s0M/132689.jpg,Herramientas Eléctricas
+HE-003,Martillo perforador Milwaukee M18 CH,Martillo inalámbrico 18V SDS-Plus Milwaukee M18 CH,1150.00,,1590.00,1370.00,8,https://i.ibb.co/0js593Ft/martillo-perforador-milwaukee-m18-blhx-502x-sds-plus-26mm-con-2-baterias-5ah-4933478892.jpg,Herramientas Eléctricas
+HE-004,Rotor-corte Metabo KGS 216M,Láser de sierra de inglete Metabo 216mm,950.00,,1390.00,1170.00,10,https://i.ibb.co/Qj9SSqW3/metabo-afkortzaag-kgs-216-m-set-met-trekfunctie-nieuwste-model-plus-extra-zaagblad-613216900.jpg,Herramientas Eléctricas

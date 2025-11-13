@@ -44,3 +44,28 @@ class NotaDeVenta(models.Model):
         """Marca la nota de venta como pagada"""
         self.estado = 'pagada'
         self.save()
+    
+    def validar_stock_disponible(self):
+        """
+        Valida que haya stock suficiente para todos los productos en la nota de venta.
+        Retorna una tupla (es_valido, mensaje_error)
+        """
+        productos_sin_stock = []
+        
+        for detalle in self.detalles.all():
+            if detalle.producto.stock < detalle.cantidad:
+                productos_sin_stock.append({
+                    'producto': detalle.producto.nombre,
+                    'stock_actual': detalle.producto.stock,
+                    'cantidad_requerida': detalle.cantidad
+                })
+        
+        if productos_sin_stock:
+            mensaje = "Stock insuficiente para los siguientes productos: "
+            mensaje += ", ".join([
+                f"{p['producto']} (disponible: {p['stock_actual']}, requerido: {p['cantidad_requerida']})"
+                for p in productos_sin_stock
+            ])
+            return False, mensaje
+        
+        return True, "Stock suficiente para todos los productos"

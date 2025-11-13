@@ -8,6 +8,7 @@ class DetalleCarritoSerializer(serializers.ModelSerializer):
     producto_imagen = serializers.URLField(source='producto.imagen', read_only=True)
     carrito_codigo = serializers.CharField(source='carrito.codigo', read_only=True)
     subtotal = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
+    producto_info = serializers.SerializerMethodField()
 
     class Meta:
         model = DetalleCarrito
@@ -19,11 +20,26 @@ class DetalleCarritoSerializer(serializers.ModelSerializer):
             'producto_nombre',
             'producto_codigo',
             'producto_imagen',
+            'producto_info',
             'cantidad', 
             'precio_unitario',
             'subtotal'
         ]
         read_only_fields = ['subtotal', 'precio_unitario']
+
+    def get_producto_info(self, obj):
+        """Devuelve información completa del producto"""
+        if not obj.producto:
+            return None
+        return {
+            'id': obj.producto.id,
+            'codigo': obj.producto.codigo,
+            'nombre': obj.producto.nombre,
+            'descripcion': obj.producto.descripcion,
+            'imagen': obj.producto.imagen,
+            'stock': obj.producto.stock,
+            'precio_venta': str(obj.producto.precio_venta),
+        }
 
     def validate(self, data):
         """Validación adicional en el serializer"""

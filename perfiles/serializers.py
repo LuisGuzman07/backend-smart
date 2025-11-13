@@ -12,12 +12,16 @@ User = get_user_model()
 class ClienteSerializer(serializers.ModelSerializer):
 	usuario_info = serializers.SerializerMethodField(read_only=True)
 	usuario = UserPKOrNestedField(queryset=User.objects.all(), required=False, allow_null=True)
+	role = serializers.SerializerMethodField(read_only=True)
+	email = serializers.SerializerMethodField(read_only=True)
+	username = serializers.SerializerMethodField(read_only=True)
 
 	class Meta:
 		model = Cliente
 		fields = [
 			'id', 'nombre', 'apellido', 'ci', 'telefono',
-			'direccion', 'estado', 'sexo', 'usuario', 'usuario_info'
+			'direccion', 'estado', 'sexo', 'usuario', 'usuario_info',
+			'role', 'email', 'username'
 		]
 		read_only_fields = ('id',)
 
@@ -35,6 +39,21 @@ class ClienteSerializer(serializers.ModelSerializer):
 			'username': getattr(obj.usuario, 'username', None),
 			'email': getattr(obj.usuario, 'email', None),
 		}
+
+	def get_role(self, obj):
+		"""Obtiene el rol del usuario desde sus grupos de Django"""
+		if not obj.usuario:
+			return None
+		first_group = obj.usuario.groups.first()
+		return first_group.name if first_group else None
+
+	def get_email(self, obj):
+		"""Obtiene el email del usuario asociado"""
+		return obj.usuario.email if obj.usuario else None
+
+	def get_username(self, obj):
+		"""Obtiene el username del usuario asociado"""
+		return obj.usuario.username if obj.usuario else None
 
 	def validate_nombre(self, value):
 		value = value.strip()
@@ -82,12 +101,16 @@ class ClienteSerializer(serializers.ModelSerializer):
 class EmpleadoSerializer(serializers.ModelSerializer):
 	usuario_info = serializers.SerializerMethodField(read_only=True)
 	usuario = UserPKOrNestedField(queryset=User.objects.all(), required=True)
+	role = serializers.SerializerMethodField(read_only=True)
+	email = serializers.SerializerMethodField(read_only=True)
+	username = serializers.SerializerMethodField(read_only=True)
 
 	class Meta:
 		model = Empleado
 		fields = [
 			'id', 'nombre', 'apellido', 'ci', 'telefono', 'sexo', 'direccion',
-			'estado', 'fecha_nacimiento', 'cargo', 'sueldo', 'usuario', 'usuario_info'
+			'estado', 'fecha_nacimiento', 'cargo', 'sueldo', 'usuario', 'usuario_info',
+			'role', 'email', 'username'
 		]
 		read_only_fields = ('id',)
 
@@ -105,6 +128,21 @@ class EmpleadoSerializer(serializers.ModelSerializer):
 			'username': getattr(obj.usuario, 'username', None),
 			'email': getattr(obj.usuario, 'email', None),
 		}
+
+	def get_role(self, obj):
+		"""Obtiene el rol del usuario desde sus grupos de Django"""
+		if not obj.usuario:
+			return None
+		first_group = obj.usuario.groups.first()
+		return first_group.name if first_group else None
+
+	def get_email(self, obj):
+		"""Obtiene el email del usuario asociado"""
+		return obj.usuario.email if obj.usuario else None
+
+	def get_username(self, obj):
+		"""Obtiene el username del usuario asociado"""
+		return obj.usuario.username if obj.usuario else None
 
 	def validate_nombre(self, value):
 		value = value.strip()

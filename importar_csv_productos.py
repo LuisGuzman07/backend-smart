@@ -9,8 +9,9 @@ from decimal import Decimal
 from inventario.modelsCategoria import Categoria
 from inventario.modelsProducto import Producto
 
-with open('productos_linea_blanca.csv', newline='', encoding='utf-8') as csvfile:
-    reader = csv.DictReader(csvfile)
+with open('Productos_inventario.csv', newline='', encoding='utf-8') as csvfile:
+    filtered_lines = (line for line in csvfile if not line.strip().startswith('#'))
+    reader = csv.DictReader(filtered_lines)
     for row in reader:
         categoria, _ = Categoria.objects.get_or_create(nombre=row['categoria'])
         producto, created = Producto.objects.get_or_create(
