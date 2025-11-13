@@ -116,6 +116,8 @@ ENTIDADES_DISPONIBLES = {
             'nota_venta__cliente__nombre': {'label': 'Cliente Nombre', 'tipo': 'text'},
             'nota_venta__cliente__apellido': {'label': 'Cliente Apellido', 'tipo': 'text'},
             'nota_venta__cliente__ci': {'label': 'Cliente CI', 'tipo': 'text'},
+            'total_cantidad': {'label': 'Total Cantidad Vendida', 'tipo': 'aggregation'},
+            'total_vendido': {'label': 'Total Vendido (Bs)', 'tipo': 'aggregation'},
         },
         'filtros_disponibles': {
             'nota_venta__fecha__gte': {'label': 'Fecha venta desde', 'tipo': 'date'},

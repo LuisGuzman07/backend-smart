@@ -435,6 +435,38 @@ class ReporteViewSet(viewsets.ModelViewSet):
                             else:
                                 registro_formateado[campo] = registro.get(campo)
                     registros.append(registro_formateado)
+            
+            elif requiere_agrupacion and interpretacion.get('agrupar_por') == 'producto':
+                # Agrupación especial por producto
+                from django.db.models import Count, Sum
+                
+                registros_agrupados = queryset.values(
+                    'producto__id',
+                    'producto__nombre',
+                    'producto__codigo',
+                    'producto__categoria__nombre'
+                ).annotate(
+                    total_cantidad=Sum('cantidad'),
+                    total_vendido=Sum('total')
+                ).order_by('-total_vendido')
+                
+                for registro in registros_agrupados:
+                    registro_formateado = {}
+                    for campo in campos:
+                        # Mapear campos del diccionario agrupado
+                        if campo in registro:
+                            registro_formateado[campo] = registro[campo]
+                        else:
+                            # Intentar obtener el valor del campo
+                            partes = campo.split('__')
+                            if len(partes) >= 2 and partes[0] == 'producto':
+                                # Reconstruir el campo con el prefijo producto__
+                                campo_buscar = '__'.join(partes)
+                                registro_formateado[campo] = registro.get(campo_buscar)
+                            else:
+                                registro_formateado[campo] = registro.get(campo)
+                    registros.append(registro_formateado)
+            
             else:
                 # Obtención normal sin agrupación
                 for obj in queryset:

@@ -538,12 +538,26 @@ def interpretar_consulta(consulta):
         if estado:
             resultado['filtros']['nota_venta__estado'] = estado
         
-        # Campos sugeridos para detalles de ventas
-        resultado['campos_sugeridos'] = [
-            'producto__nombre', 'cantidad', 'total', 
-            'nota_venta__fecha', 'nota_venta__cliente__nombre', 
-            'nota_venta__cliente__apellido', 'nota_venta__numero_comprobante'
-        ]
+        # Detectar si se solicita agrupación por producto
+        consulta_lower = consulta.lower()
+        keywords_agrupacion = ['agrupado por producto', 'agrupadas por producto', 'agrupados por producto', 'por producto']
+        requiere_agrupacion_producto = any(kw in consulta_lower for kw in keywords_agrupacion)
+        
+        if requiere_agrupacion_producto:
+            # Campos para agrupación por producto
+            resultado['campos_sugeridos'] = [
+                'producto__nombre', 'producto__codigo', 'producto__categoria__nombre',
+                'total_cantidad', 'total_vendido'
+            ]
+            resultado['requiere_agrupacion'] = True
+            resultado['agrupar_por'] = 'producto'
+        else:
+            # Campos sugeridos para detalles sin agrupar
+            resultado['campos_sugeridos'] = [
+                'producto__nombre', 'cantidad', 'total', 
+                'nota_venta__fecha', 'nota_venta__cliente__nombre', 
+                'nota_venta__cliente__apellido', 'nota_venta__numero_comprobante'
+            ]
     
     elif entidad == 'ventas_por_cliente':
         # Extraer fechas para ventas
