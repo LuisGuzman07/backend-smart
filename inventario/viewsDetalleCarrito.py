@@ -1,7 +1,9 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from django.core.exceptions import ValidationError
 from inventario.modelsDetalleCarrito import DetalleCarrito
+from inventario.modelsCarrito import Carrito
 from inventario.serializers.serializerDetalleCarrito import DetalleCarritoSerializer
 
 
@@ -10,9 +12,40 @@ class DetalleCarritoViewSet(viewsets.ModelViewSet):
     ViewSet para gestionar los detalles de carrito.
     Permite agregar, actualizar cantidad y eliminar productos del carrito.
     Valida stock automáticamente.
+    Filtra por carritos del usuario autenticado.
     """
-    queryset = DetalleCarrito.objects.all()
     serializer_class = DetalleCarritoSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def get_queryset(self):
+        """
+        Filtra los detalles de carrito según el usuario autenticado:
+        - Si es cliente: solo detalles de sus propios carritos
+        - Si es admin/empleado: todos los detalles
+        
+        IMPORTANTE: Si se pasa el parámetro ?carrito=X, se filtra adicionalmente por ese carrito
+        """
+        user = self.request.user
+        
+        # Filtro base por permisos
+        if user.is_superuser or user.is_staff:
+            queryset = DetalleCarrito.objects.select_related('carrito', 'producto').all()
+        else:
+            # Si es cliente, solo ver detalles de sus propios carritos
+            try:
+                cliente = user.cliente
+                carritos_cliente = Carrito.objects.filter(cliente=cliente).values_list('id', flat=True)
+                queryset = DetalleCarrito.objects.filter(carrito__id__in=carritos_cliente).select_related('carrito', 'producto')
+            except:
+                # Si el usuario no tiene perfil de cliente, no devolver ningún detalle
+                return DetalleCarrito.objects.none()
+        
+        # Filtro adicional por carrito específico si se proporciona
+        carrito_id = self.request.query_params.get('carrito')
+        if carrito_id:
+            queryset = queryset.filter(carrito_id=carrito_id)
+        
+        return queryset
 
     def create(self, request, *args, **kwargs):
         """

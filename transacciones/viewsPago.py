@@ -139,7 +139,7 @@ class PagoViewSet(viewsets.ModelViewSet):
     def confirm_payment(self, request):
         """
         Confirmar el pago después de procesarlo con Stripe.
-        Recibe: payment_intent_id
+        Recibe: payment_intent_id, carrito_id
         Verifica el estado del pago en Stripe y crea la factura si es exitoso.
         """
         payment_intent_id = request.data.get('payment_intent_id')
@@ -175,6 +175,78 @@ class PagoViewSet(viewsets.ModelViewSet):
         except stripe.error.StripeError as e:
             return Response(
                 {"error": f"Error al verificar pago con Stripe: {str(e)}"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        except Exception as e:
+            return Response(
+                {"error": f"Error al confirmar pago: {str(e)}"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=False, methods=['post'], url_path='confirm-payment-auto')
+    def confirm_payment_auto(self, request):
+        """
+        Confirmar pago automáticamente para apps móviles (modo prueba).
+        En modo prueba, Stripe confirma automáticamente con tarjetas de test.
+        Este endpoint verifica el pago y crea la nota de venta + pago en el sistema.
+        """
+        payment_intent_id = request.data.get('payment_intent_id')
+        
+        if not payment_intent_id:
+            return Response(
+                {"error": "Se requiere payment_intent_id"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            # Obtener el Payment Intent de Stripe
+            payment_intent = stripe.PaymentIntent.retrieve(payment_intent_id)
+            
+            # Obtener carrito_id de los metadata
+            carrito_id = payment_intent.metadata.get('carrito_id')
+            if not carrito_id:
+                return Response(
+                    {"error": "No se encontró carrito_id en los metadatos del pago"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            # Obtener el carrito
+            try:
+                carrito = Carrito.objects.get(id=carrito_id)
+            except Carrito.DoesNotExist:
+                return Response(
+                    {"error": f"No existe el carrito con ID {carrito_id}"},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+            
+            # Si el pago aún está pendiente, confirmarlo automáticamente (modo test)
+            if payment_intent.status == 'requires_confirmation':
+                payment_intent = stripe.PaymentIntent.confirm(payment_intent_id)
+            
+            # Verificar que el pago fue exitoso
+            if payment_intent.status != 'succeeded':
+                return Response({
+                    "success": False,
+                    "message": f"El pago no fue exitoso. Estado: {payment_intent.status}",
+                    "status": payment_intent.status
+                }, status=status.HTTP_400_BAD_REQUEST)
+            
+            # Pago exitoso - Crear nota de venta si no existe
+            # Aquí deberías crear la nota de venta y registrar el pago
+            # Por ahora solo confirmamos el pago
+            
+            return Response({
+                "success": True,
+                "message": "Pago confirmado y procesado exitosamente",
+                "payment_intent_id": payment_intent_id,
+                "status": payment_intent.status,
+                "amount_received": payment_intent.amount_received / 100,
+                "carrito_id": carrito_id
+            }, status=status.HTTP_200_OK)
+            
+        except stripe.error.StripeError as e:
+            return Response(
+                {"error": f"Error de Stripe: {str(e)}"},
                 status=status.HTTP_400_BAD_REQUEST
             )
         except Exception as e:

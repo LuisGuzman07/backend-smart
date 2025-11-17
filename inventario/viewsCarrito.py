@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from inventario.modelsCarrito import Carrito
 from inventario.serializers.serializerCarrito import CarritoSerializer, CarritoSimpleSerializer
 
@@ -9,9 +10,30 @@ class CarritoViewSet(viewsets.ModelViewSet):
     """
     ViewSet para gestionar los carritos de compra.
     Proporciona operaciones CRUD completas con soporte para múltiples carritos por cliente.
+    Filtra automáticamente por el cliente autenticado.
     """
-    queryset = Carrito.objects.select_related('cliente').prefetch_related('detalles__producto').all()
     serializer_class = CarritoSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        """
+        Filtra los carritos según el usuario autenticado:
+        - Si es cliente: solo sus propios carritos
+        - Si es admin/empleado: todos los carritos
+        """
+        user = self.request.user
+        
+        # Si es superusuario o staff, puede ver todos los carritos
+        if user.is_superuser or user.is_staff:
+            return Carrito.objects.select_related('cliente').prefetch_related('detalles__producto').all()
+        
+        # Si es cliente, solo ver sus propios carritos
+        try:
+            cliente = user.cliente
+            return Carrito.objects.filter(cliente=cliente).select_related('cliente').prefetch_related('detalles__producto')
+        except:
+            # Si el usuario no tiene perfil de cliente, no devolver ningún carrito
+            return Carrito.objects.none()
 
     def get_serializer_class(self):
         """Usa CarritoSimpleSerializer para listados, CarritoSerializer para detalle"""

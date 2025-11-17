@@ -30,6 +30,8 @@ class ListadoHistoricoVentas(models.Model):
     )
     cliente_ci = models.CharField(
         max_length=20,
+        blank=True,
+        null=True,
         help_text="CI del cliente"
     )
     cliente_email = models.EmailField(
@@ -143,33 +145,33 @@ class ListadoHistoricoVentas(models.Model):
         cliente = nota_venta.cliente
         pago = nota_venta.pago
         
-        # Verificar si ya existe el registro
-        historial, created = cls.objects.get_or_create(
-            nota_venta=nota_venta,
-            defaults={
-                'cliente_nombre': f"{cliente.nombre} {cliente.apellido}",
-                'cliente_ci': cliente.ci,
-                'cliente_email': cliente.email if hasattr(cliente, 'email') else None,
-                'numero_venta': nota_venta.numero_comprobante,
-                'fecha_venta': nota_venta.fecha,
-                'subtotal': nota_venta.subtotal,
-                'total': nota_venta.total,
-                'fecha_pago': pago.fecha,
-                'referencia_pago': pago.total_stripe,
-                'metodo_pago': 'Stripe',
-                'estado_pago': 'completado',
-            }
-        )
-        
-        # Si el registro ya existía, actualizarlo con la información del pago
-        if not created:
+        # Verificar si ya existe el registro (como nota_venta es primary_key, no puede haber duplicados)
+        try:
+            historial = cls.objects.get(nota_venta=nota_venta)
+            # Si existe, actualizar
             historial.fecha_pago = pago.fecha
             historial.referencia_pago = pago.total_stripe
             historial.metodo_pago = 'Stripe'
             historial.estado_pago = 'completado'
             historial.save()
-        
-        return historial
+            return historial
+        except cls.DoesNotExist:
+            # Si no existe, crear nuevo
+            historial = cls.objects.create(
+                nota_venta=nota_venta,
+                cliente_nombre=f"{cliente.nombre} {cliente.apellido or ''}".strip(),
+                cliente_ci=cliente.ci or 'SIN-CI',  # Usar 'SIN-CI' si no tiene CI
+                cliente_email=getattr(cliente.usuario, 'email', None) if cliente.usuario else None,
+                numero_venta=nota_venta.numero_comprobante,
+                fecha_venta=nota_venta.fecha,
+                subtotal=nota_venta.subtotal,
+                total=nota_venta.total,
+                fecha_pago=pago.fecha,
+                referencia_pago=pago.total_stripe,
+                metodo_pago='Stripe',
+                estado_pago='completado',
+            )
+            return historial
     
     @classmethod
     def actualizar_estado_pago(cls, nota_venta_id, nuevo_estado):

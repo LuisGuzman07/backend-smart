@@ -2,10 +2,13 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from transacciones.modelsNotaDeVenta import NotaDeVenta
 from transacciones.serializers.serializersNotaDeVenta import NotaDeVentaSerializer, NotaDeVentaSimpleSerializer
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class NotaDeVentaViewSet(viewsets.ModelViewSet):
     """
     ViewSet para gestionar las notas de venta.
@@ -147,3 +150,83 @@ class NotaDeVentaViewSet(viewsets.ModelViewSet):
                 {"error": f"Error al limpiar notas pendientes: {str(e)}"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+    
+    @action(detail=False, methods=['post'], url_path='desde-carrito')
+    def crear_desde_carrito(self, request):
+        """
+        Crea una nota de venta desde un carrito.
+        Recibe: carrito_id
+        Crea la nota de venta con todos sus detalles y elimina el carrito.
+        """
+        from inventario.modelsCarrito import Carrito
+        from transacciones.modelsDetalleNotaDeVenta import DetalleNotaDeVenta
+        from datetime import datetime
+        
+        carrito_id = request.data.get('carrito_id')
+        
+        if not carrito_id:
+            return Response(
+                {"error": "Se requiere carrito_id"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            # Obtener el carrito con sus detalles
+            carrito = Carrito.objects.prefetch_related('detalles__producto').get(id=carrito_id)
+            
+            if not carrito.cliente:
+                return Response(
+                    {"error": "El carrito no tiene un cliente asignado"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            # Verificar que el carrito tenga items
+            if carrito.detalles.count() == 0:
+                return Response(
+                    {"error": "El carrito está vacío"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            # Generar número de comprobante único
+            numero_comprobante = f"NV-{int(datetime.now().timestamp())}-{carrito_id}"
+            
+            # Crear la nota de venta
+            nota_venta = NotaDeVenta.objects.create(
+                numero_comprobante=numero_comprobante,
+                cliente=carrito.cliente,
+                estado='pendiente'
+            )
+            
+            # Crear los detalles de la nota de venta desde los detalles del carrito
+            for detalle_carrito in carrito.detalles.all():
+                DetalleNotaDeVenta.objects.create(
+                    nota_venta=nota_venta,
+                    producto=detalle_carrito.producto,
+                    cantidad=detalle_carrito.cantidad
+                )
+            
+            # Recalcular totales
+            nota_venta.calcular_totales()
+            
+            # Eliminar el carrito
+            carrito.delete()
+            
+            # Serializar la nota de venta completa
+            serializer = self.get_serializer(nota_venta)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            
+        except Carrito.DoesNotExist:
+            return Response(
+                {"error": f"No existe el carrito con ID {carrito_id}"},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            return Response(
+                {"error": f"Error al crear nota de venta: {str(e)}"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=True, methods=['post'], url_path='marcar-pagada')
+    def marcar_pagada(self, request, pk=None):
+        """Alias para el método pagar() - marca la nota de venta como pagada"""
+        return self.pagar(request, pk)
