@@ -60,7 +60,7 @@ def detectar_entidad(consulta):
         return 'ventas_por_cliente'
     
     # Prioridad 2: Detectar detalles de ventas (agrupado por producto, productos vendidos, etc.)
-    keywords_detalles_fuertes = ['agrupado por producto', 'agrupadas por producto', 'detalles de venta', 'detalle de venta']
+    keywords_detalles_fuertes = ['agrupado por producto', 'agrupadas por producto', 'agrupado por productos', 'agrupadas por productos', 'agrupados por producto', 'agrupados por productos', 'detalles de venta', 'detalle de venta']
     keywords_vendidos = ['productos vendidos', 'items vendidos', 'artículos vendidos', 'articulos vendidos']
     keywords_detalle_simple = ['detalle', 'detalles']
     keywords_ventas_contexto = ['venta', 'ventas', 'compra', 'compras', 'vendido', 'vendidos']
@@ -540,7 +540,7 @@ def interpretar_consulta(consulta):
         
         # Detectar si se solicita agrupación por producto
         consulta_lower = consulta.lower()
-        keywords_agrupacion = ['agrupado por producto', 'agrupadas por producto', 'agrupados por producto', 'por producto']
+        keywords_agrupacion = ['agrupado por producto', 'agrupadas por producto', 'agrupados por producto', 'agrupado por productos', 'agrupadas por productos', 'agrupados por productos', 'por producto']
         requiere_agrupacion_producto = any(kw in consulta_lower for kw in keywords_agrupacion)
         
         if requiere_agrupacion_producto:
