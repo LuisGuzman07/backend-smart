@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from .models_device_token import DeviceToken
 
 class Empleado(models.Model):
 

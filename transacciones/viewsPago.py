@@ -314,6 +314,57 @@ class PagoViewSet(viewsets.ModelViewSet):
         if serializer.is_valid():
             pago = serializer.save()
             response_serializer = PagoSerializer(pago)
+            
+            # 🔔 ENVIAR NOTIFICACIÓN A ADMINISTRADORES
+            try:
+                from django.contrib.auth.models import User
+                from perfiles.fcm_service import send_push_to_user
+                
+                # Obtener información del cliente y productos
+                cliente = nota_venta.cliente
+                cliente_nombre = f"{cliente.nombre} {cliente.apellido}"
+                
+                # Obtener el primer producto y cantidad total
+                detalles = nota_venta.detalles.all()
+                if detalles.exists():
+                    primer_detalle = detalles.first()
+                    cantidad_productos = sum(d.cantidad for d in detalles)
+                    
+                    if cantidad_productos == 1:
+                        producto_texto = f"{primer_detalle.cantidad} {primer_detalle.producto.nombre}"
+                    elif detalles.count() == 1:
+                        producto_texto = f"{primer_detalle.cantidad} {primer_detalle.producto.nombre}"
+                    else:
+                        producto_texto = f"{primer_detalle.cantidad} {primer_detalle.producto.nombre} + {detalles.count() - 1} más"
+                else:
+                    producto_texto = "productos"
+                
+                # Construir mensaje de notificación
+                titulo = "💰 Nueva venta realizada"
+                cuerpo = f"{cliente_nombre} realizó una compra de {producto_texto} por un valor de Bs. {float(nota_venta.total):.2f}"
+                
+                # Enviar notificación a todos los administradores
+                admins = User.objects.filter(is_staff=True, is_active=True)
+                for admin in admins:
+                    send_push_to_user(
+                        user=admin,
+                        title=titulo,
+                        body=cuerpo,
+                        data={
+                            'type': 'nueva_venta',
+                            'nota_venta_id': str(nota_venta.id),
+                            'historial_venta_id': str(nota_venta.historial_venta.id) if hasattr(nota_venta, 'historial_venta') else None,
+                            'screen': '/historial-ventas',
+                            'cliente_nombre': cliente_nombre,
+                            'total': str(nota_venta.total)
+                        }
+                    )
+                    print(f"📱 Notificación enviada al admin: {admin.username}")
+                    
+            except Exception as e:
+                # No fallar el pago si la notificación falla
+                print(f"⚠️ Error enviando notificación: {str(e)}")
+            
             return Response(
                 {
                     "message": "Pago procesado exitosamente. El stock de los productos ha sido reducido.",

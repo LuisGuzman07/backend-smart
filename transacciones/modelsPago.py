@@ -42,6 +42,7 @@ class Pago(models.Model):
         Al guardar el pago:
         1. Marca automáticamente la nota de venta como pagada
         2. Reduce el stock de los productos vendidos
+        3. Envía notificación a administradores
         """
         # Verificar si es un nuevo pago (no una actualización)
         es_nuevo_pago = self.nota_venta_id and not Pago.objects.filter(nota_venta_id=self.nota_venta_id).exists()
@@ -55,6 +56,9 @@ class Pago(models.Model):
             # Reducir el stock de cada producto vendido
             if es_nuevo_pago:
                 self.reducir_stock_productos()
+                
+                # 🔔 ENVIAR NOTIFICACIÓN A ADMINISTRADORES
+                self.enviar_notificacion_admin()
     
     def reducir_stock_productos(self):
         """
@@ -80,3 +84,54 @@ class Pago(models.Model):
         Valida que el monto del pago coincida con el total de la nota de venta
         """
         return self.monto == self.nota_venta.total
+    
+    def enviar_notificacion_admin(self):
+        """
+        Envía notificación push a todos los administradores cuando se realiza una nueva venta
+        """
+        try:
+            from django.contrib.auth.models import User
+            from perfiles.fcm_service import send_push_to_user
+            
+            nota_venta = self.nota_venta
+            cliente = nota_venta.cliente
+            cliente_nombre = f"{cliente.nombre} {cliente.apellido}"
+            
+            # Obtener información de productos
+            detalles = nota_venta.detalles.all()
+            if detalles.exists():
+                primer_detalle = detalles.first()
+                cantidad_productos = sum(d.cantidad for d in detalles)
+                
+                if cantidad_productos == 1:
+                    producto_texto = f"{primer_detalle.cantidad} {primer_detalle.producto.nombre}"
+                elif detalles.count() == 1:
+                    producto_texto = f"{primer_detalle.cantidad} {primer_detalle.producto.nombre}"
+                else:
+                    producto_texto = f"{primer_detalle.cantidad} {primer_detalle.producto.nombre} + {detalles.count() - 1} más"
+            else:
+                producto_texto = "productos"
+            
+            # Construir mensaje
+            titulo = "💰 Nueva venta realizada"
+            cuerpo = f"{cliente_nombre} realizó una compra de {producto_texto} por un valor de Bs. {float(nota_venta.total):.2f}"
+            
+            # Enviar a todos los administradores
+            admins = User.objects.filter(is_staff=True, is_active=True)
+            for admin in admins:
+                send_push_to_user(
+                    user=admin,
+                    title=titulo,
+                    body=cuerpo,
+                    data={
+                        'type': 'nueva_venta',
+                        'nota_venta_id': str(nota_venta.id),
+                        'screen': '/historial-ventas',
+                        'cliente_nombre': cliente_nombre,
+                        'total': str(nota_venta.total)
+                    }
+                )
+                print(f"📱 Notificación enviada al admin: {admin.username}")
+                
+        except Exception as e:
+            print(f"⚠️ Error enviando notificación admin: {str(e)}")

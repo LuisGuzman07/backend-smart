@@ -1,6 +1,8 @@
 from rest_framework.routers import DefaultRouter
 from .views import ClienteViewSet, EmpleadoViewSet, UserRegisterView, CustomTokenObtainPairView, RoleViewSet, UserViewSet, PermissionListView, MeView
+from .views_device_token import register_device_token, unregister_device_token, list_device_tokens, delete_device_token
 from django.urls import path, include
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Importa las vistas JWT
@@ -25,4 +27,9 @@ urlpatterns = [
     path('token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    # Endpoints para tokens de dispositivos FCM
+    path('device-tokens/', csrf_exempt(register_device_token), name='register_device_token'),
+    path('device-tokens/unregister/', csrf_exempt(unregister_device_token), name='unregister_device_token'),
+    path('device-tokens/list/', list_device_tokens, name='list_device_tokens'),
+    path('device-tokens/<int:token_id>/', delete_device_token, name='delete_device_token'),
 ]
