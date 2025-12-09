@@ -42,7 +42,7 @@ RAILWAY_STATIC_URL = config('RAILWAY_STATIC_URL', default='')
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "backend-smart-production-1f52.up.railway.app", "192.168.100.6"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "backend-smart-production-dc54.up.railway.app", "192.168.100.6"]
 
 if RAILWAY_PUBLIC_DOMAIN:
     ALLOWED_HOSTS.append(RAILWAY_PUBLIC_DOMAIN)
@@ -185,7 +185,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS: permitir peticiones desde tu frontend local (ej: React en puerto 5173 o 3000)
 CORS_ALLOWED_ORIGINS = [
-    "https://frontend-smart-production-8ce5.up.railway.app",
+    "https://frontend-smart-production-9d9d.up.railway.app",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:3000",
@@ -208,8 +208,8 @@ if RAILWAY_PUBLIC_DOMAIN:
 
 # Agregar dominio de Railway a CSRF trusted origins
 CSRF_TRUSTED_ORIGINS = [
-    "https://frontend-smart-production-8ce5.up.railway.app",
-    "https://backend-smart-production-1f52.up.railway.app",
+    "https://frontend-smart-production-9d9d.up.railway.app",
+    "https://backend-smart-production-dc54.up.railway.app",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:3000",
